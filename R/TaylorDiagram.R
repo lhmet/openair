@@ -222,6 +222,7 @@ TaylorDiagram_ <- function(mydata, obs = "obs", mod = "mod", group = NULL, type 
                           normalise = FALSE, cols = "brewer1",
                           rms.col = "darkgoldenrod", cor.col = "black", arrow.lwd = 3,
                           annotate = "centred\nRMS error", text.obs = "observed",
+                          text.obs.col = "black", 
                           key = TRUE, key.title = group, key.columns = 1,
                           key.pos = "right", strip = TRUE, auto.text = TRUE, ...) {
 
@@ -657,8 +658,8 @@ panel.taylor.setup <- function(x, y, subscripts, results, maxsd, cor.col, rms.co
 
 
   ## measured point and text
-  lpoints(results$sd.obs[subscripts[1]], 0, pch = 20, col = "purple", cex = 1.5)
-  ltext(results$sd.obs[subscripts[1]], 0, text.obs, col = "purple", cex = 0.5, pos = 3)
+  lpoints(results$sd.obs[subscripts[1]], 0, pch = 20, col = text.obs.col, cex = 1.5)
+  ltext(results$sd.obs[subscripts[1]], 0, text.obs, col = text.obs.col, cex = 0.5, pos = 3)
 }
 
 
