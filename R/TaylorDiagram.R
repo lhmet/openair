@@ -113,7 +113,7 @@
 #'   \code{colours()} to see the full list). An example would be \code{cols =
 #'   c("yellow", "green", "blue")}.
 #' @param rms.col Colour for centred-RMS lines and text.
-#' @param cor.col Colour for correlation coefficient lines and text.
+#' @param cor.col Colour for  coefficient lines and text.
 #' @param arrow.lwd Width of arrow used when used for comparing two model
 #'   outputs.
 #' @param annotate Annotation shown for RMS error.
@@ -148,7 +148,7 @@
 #'   \code{output <- TaylorDiagram(thedata, obs = "nox", mod = "mod")}, this
 #'   output can be used to recover the data, reproduce or rework the original
 #'   plot or undertake further analysis. For example, \code{output$data} will be
-#'   a data frame consisting of the group, type, correlation coefficient (R),
+#'   a data frame consisting of the group, type,  coefficient (R),
 #'   the standard deviation of the observations and measurements.
 #' @author David Carslaw
 #' @family model evaluation functions
@@ -172,7 +172,7 @@
 #' dat <- transform(dat, month = as.numeric(format(date, "%m")))
 #' mod1 <- transform(dat, mod = mod + 10 * month + 10 * month * rnorm(nrow(dat)),
 #' model = "model 1")
-#' ## lag the results for mod1 to make the correlation coefficient worse
+#' ## lag the results for mod1 to make the  coefficient worse
 #' ## without affecting the sd
 #' mod1 <- transform(mod1, mod = c(mod[5:length(mod)], mod[(length(mod) - 3) :
 #' length(mod)]))
@@ -560,7 +560,7 @@ panel.taylor.setup <- function(x, y, subscripts, results, maxsd, cor.col, rms.co
   ## This does not matter if normalise = TRUE because all sd.obs = 1.
 
   ## The data frame 'results' should contain a grouping variable 'MyGroupVar',
-  ## 'type' e.g. season, R (correlation coef), sd.obs and sd.mod
+  ## 'type' e.g. season, R ( coef), sd.obs and sd.mod
   xcurve <- cos(seq(0, pi / 2, by = 0.01)) * maxsd
   ycurve <- sin(seq(0, pi / 2, by = 0.01)) * maxsd
   llines(xcurve, ycurve, col = "black")
@@ -643,12 +643,14 @@ panel.taylor.setup <- function(x, y, subscripts, results, maxsd, cor.col, rms.co
     cos(c(bigtick, acos(c(0.95, 0.99)))) *
       1.06 * maxsd, sin(c(bigtick, acos(c(0.95, 0.99)))) *
       1.06 * maxsd, c(seq(0.1, 0.9, by = 0.1), 0.95, 0.99),
-    cex = 0.5,
-    adj = 0.5, srt = angles, col = cor.col
+    cex = 0.4,
+    #adj = 0.5, srt = angles, col = cor.col
+    adj = 0.52, srt = angles, col = cor.col
   )
 
   ltext(
-    0.82 * maxsd, 0.82 * maxsd, "correlation",
+    #0.82 * maxsd, 0.82 * maxsd, "correlation",
+    0.82 * maxsd, 0.82 * maxsd, "r",
     srt = 315, cex = 0.5,
     col = cor.col
   )
