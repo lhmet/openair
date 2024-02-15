@@ -522,6 +522,7 @@ TaylorDiagram_ <- function(mydata, obs = "obs", mod = "mod", group = NULL, type 
         results = results, maxsd = maxsd,
         cor.col = cor.col, rms.col = rms.col,
         text.obs = text.obs,
+        text.obs.col = text.obs.col,
         annotate = annotate, ...
       )
 
@@ -554,7 +555,7 @@ TaylorDiagram_ <- function(mydata, obs = "obs", mod = "mod", group = NULL, type 
 
 
 panel.taylor.setup <- function(x, y, subscripts, results, maxsd, cor.col, rms.col,
-                               text.obs,
+                               text.obs, text.obs.col,
                                col.symbol, annotate, group.number, type, ...) {
   ## note, this assumes for each level of type there is a single measured value
   ## therefore, only the first is used  i.e. results$sd.obs[subscripts[1]]
