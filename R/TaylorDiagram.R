@@ -218,7 +218,7 @@
 #'
 #' TaylorDiagram(mod.dat, obs = "obs", mod = "mod", group = c("model", "month"))
 #' }
-TaylorDiagram <- function(mydata, obs = "obs", mod = "mod", group = NULL, type = "default",
+TaylorDiagram_ <- function(mydata, obs = "obs", mod = "mod", group = NULL, type = "default",
                           normalise = FALSE, cols = "brewer1",
                           rms.col = "darkgoldenrod", cor.col = "black", arrow.lwd = 3,
                           annotate = "centred\nRMS error", text.obs = "observed",
